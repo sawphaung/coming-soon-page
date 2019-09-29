@@ -1,0 +1,182 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.heading-logo {
+  width: 150px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}
+
+.bg-img {
+  background: url(./img/hero-mobile.jpg) top center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 40vh;
+  margin-top: 10rem;
+}
+
+.content {
+  text-align: center;
+  margin: 4rem;
+  order: 1;
+
+  h1 {
+    line-height: 1.4;
+    letter-spacing: 1rem;
+    font-size: 4rem;
+    text-transform: uppercase;
+    color: hsl(0, 36%, 70%);
+    font-weight: 300;
+
+    span {
+      color: hsl(0, 6%, 24%);
+      font-weight: 600;
+    }
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: 1.7rem;
+    margin: 2rem 0;
+    color: hsl(0, 36%, 70%);
+  }
+
+  .form-control {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    margin-top: 2rem;
+
+    .error-img {
+      display: inline-block;
+      position: absolute;
+      top: 25%;
+      right: 15%;
+      height: 25px;
+      display: none;
+    }
+
+    .error-text {
+      position: absolute;
+      top: 80%;
+      left: 2%;
+      display: none;
+    }
+
+    input[type='email'] {
+      display: inline-block;
+      width: 100%;
+      padding: 0 1.8rem;
+      color: #000;
+      font-size: 2rem;
+      font-weight: bold;
+      border: 1px solid hsl(0, 36%, 70%);
+      margin: 0;
+      height: 50px;
+      border-radius: 20px;
+      outline: none;
+    }
+
+    button {
+      display: inline-block;
+      background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 7rem;
+      height: 50px;
+      border-radius: 20px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    ::placeholder {
+      color: hsl(0, 36%, 70%);
+      font-size: 1.5rem;
+      letter-spacing: 1.7px;
+    }
+
+    input:focus:invalid:not(:placeholder-shown) {
+      border: 0.125rem solid red;
+
+      & ~ .error-text,
+      & ~ .error-img {
+        display: unset;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    margin: 0 auto;
+
+    .bg-img {
+      background-size: contain;
+      margin-top: 12rem;
+    }
+
+    .content {
+      width: 60vw;
+      margin: 5rem auto;
+
+      h1 {
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .heading-logo {
+    left: 10%;
+  }
+
+  .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    .content {
+      text-align: left;
+      margin-left: 10%;
+
+      h1 {
+        font-size: 8rem;
+        margin-top: 2rem;
+        width: 30vw;
+      }
+
+      p {
+        margin-right: 10rem;
+        font-size: 1.8rem;
+        width: 28vw;
+      }
+    }
+
+    .bg-img {
+      background: url(./img/hero-desktop.jpg) top center no-repeat;
+      background-size: cover;
+      height: 100vh;
+      margin-top: 0;
+      margin-left: 20rem;
+    }
+  }
+}
